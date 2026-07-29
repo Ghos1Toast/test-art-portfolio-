@@ -80,41 +80,46 @@ a:focus-visible,
   color: var(--ink);
 }
 
-/* ---------- gallery ---------- */
+/* ---------- gallery (masonry via CSS columns) ---------- */
 .gallery {
   max-width: 1100px;
   margin: 0 auto;
   padding: 1rem 1.5rem 4rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem 1.5rem;
+  column-count: 3;
+  column-gap: 1.5rem;
 }
 
 @media (max-width: 800px) {
-  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery { column-count: 2; }
 }
 @media (max-width: 520px) {
-  .gallery { grid-template-columns: 1fr; }
+  .gallery { column-count: 1; }
 }
 
 .piece {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+  margin: 0 0 2rem;
+  display: block;
+  break-inside: avoid; /* keeps a tile from splitting across columns */
 }
 
-/* the frame stands in for a real photo of the artwork */
+/* the frame stands in for a real photo of the artwork.
+   No fixed aspect-ratio here on purpose — each tile's height now
+   follows its own image, which is what creates the masonry effect. */
 .frame {
-  aspect-ratio: 4 / 5;
   background: var(--tile-color, #ccc);
   border: 1px solid var(--border);
   cursor: pointer;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  display: block;
   padding: 0.6rem;
   position: relative;
   overflow: hidden;
+  min-height: 3rem; /* keeps empty placeholders from collapsing to 0 */
+}
+
+.frame img {
+  display: block;
+  width: 100%;
+  height: auto; /* natural aspect ratio drives the masonry layout */
 }
 
 .placeholder-note {
@@ -124,6 +129,9 @@ a:focus-visible,
   color: rgba(0, 0, 0, 0.35);
   background: rgba(255, 255, 255, 0.35);
   padding: 0.15rem 0.4rem;
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0.6rem;
 }
 
 /* label slides up like a gallery wall plaque, on hover or keyboard focus */
