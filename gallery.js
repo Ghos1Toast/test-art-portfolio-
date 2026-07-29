@@ -4,7 +4,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const gallery = document.getElementById("work");
 
-  if (!window.artworks || !Array.isArray(window.artworks)) {
+  if (typeof artworks === "undefined" || !Array.isArray(artworks)) {
     console.error("gallery.js: 'artworks' array not found — check that data.js loaded before gallery.js.");
     return;
   }
@@ -53,8 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
     caption.appendChild(title);
     caption.appendChild(meta);
 
+    frame.appendChild(caption); // label sits inside the frame, overlaid on the image
     figure.appendChild(frame);
-    figure.appendChild(caption);
     gallery.appendChild(figure);
   });
 });

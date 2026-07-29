@@ -107,13 +107,18 @@ a:focus-visible,
    follows its own image, which is what creates the masonry effect. */
 .frame {
   background: var(--tile-color, #ccc);
-  border: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(31, 29, 27, 0.06), 0 4px 10px rgba(31, 29, 27, 0.08);
   cursor: pointer;
   display: block;
-  padding: 0.6rem;
   position: relative;
   overflow: hidden;
   min-height: 3rem; /* keeps empty placeholders from collapsing to 0 */
+  transition: box-shadow 0.2s ease;
+}
+
+.piece:hover .frame,
+.frame:focus-visible {
+  box-shadow: 0 2px 4px rgba(31, 29, 27, 0.1), 0 8px 20px rgba(31, 29, 27, 0.14);
 }
 
 .frame img {
@@ -131,22 +136,30 @@ a:focus-visible,
   padding: 0.15rem 0.4rem;
   position: absolute;
   left: 0.6rem;
-  bottom: 0.6rem;
+  top: 0.6rem;
 }
 
-/* label slides up like a gallery wall plaque, on hover or keyboard focus */
+/* label overlays the bottom-right corner of the image itself, on a dark
+   scrim so the text stays legible regardless of what's underneath it */
 .label {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
-  padding-top: 0.6rem;
-  transform: translateY(-6px);
+  align-items: flex-end;
+  gap: 0.1rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  max-width: 85%;
+  padding: 0.5rem 0.75rem;
+  background: linear-gradient(to top left, rgba(31, 29, 27, 0.85), rgba(31, 29, 27, 0));
+  text-align: right;
   opacity: 0;
+  transform: translateY(6px);
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .piece:hover .label,
-.frame:focus-visible ~ .label {
+.frame:focus-visible .label {
   transform: translateY(0);
   opacity: 1;
 }
@@ -155,11 +168,12 @@ a:focus-visible,
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 500;
+  color: var(--plaster);
 }
 
 .label-meta {
   font-size: 0.8rem;
-  color: var(--label-gray);
+  color: rgba(237, 234, 226, 0.75);
 }
 
 /* respect users who prefer less motion */
