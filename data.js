@@ -12,70 +12,70 @@
 
 const artworks = [
   {
-    image: "images\placeholder1.png",
+    image: "placeholder1.png",
     tileColor: "#B7C4A6",
     title: "Placeholder",
     medium: "100x100px PNG",
     year: "2025"
   },
   {
-    image: "images\placeholder2.png",
+    image: "placeholder2.png",
     tileColor: "#B7C4A6",
     title: "Placeholder",
     medium: "200x150px PNG",
     year: "2025"
   },
   {
-    image: "images\placeholder3.png",
+    image: "placeholder3.png",
     tileColor: "#B7C4A6",
     title: "Placeholder",
     medium: "200x150px PNG",
     year: "2025"
   }, 
   {
-    image: "images\placeholder4.png",
+    image: "placeholder4.png",
     tileColor: "#B7C4A6",
     title: "Placeholder",
     medium: "200x150px PNG",
     year: "2025"
   }, 
   {
-    image: "images\placeholder5.png",
+    image: "placeholder5.png",
     tileColor: "#B7C4A6",
     title: "Placeholder",
     medium: "200x150px PNG",
     year: "2025"
   }, 
   {
-    image: "images\placeholder6.png",
+    image: "placeholder6.png",
     tileColor: "#B7C4A6",
     title: "Placeholder",
     medium: "200x150px PNG",
     year: "2025"
   }, 
   {
-    image: "images\placeholder7.png",
+    image: "placeholder7.png",
     tileColor: "#B7C4A6",
     title: "Placeholder",
     medium: "200x150px PNG",
     year: "2025"
   }, 
   {
-    image: "images\placeholder8.png",
+    image: "placeholder8.png",
     tileColor: "#B7C4A6",
     title: "Placeholder",
     medium: "200x150px PNG",
     year: "2025"
   }, 
   {
-    image: "images\placeholder9.png",
+    image: "placeholder9.png",
     tileColor: "#B7C4A6",
     title: "Placeholder",
     medium: "200x150px PNG",
     year: "2025"
   }, 
   {
-    image: "images\placeholder10.png",
+    image: "placeholder10.png",
     tileColor: "#B7C4A6",
     title: "Placeholder",
     medium: "200x150px PNG",
